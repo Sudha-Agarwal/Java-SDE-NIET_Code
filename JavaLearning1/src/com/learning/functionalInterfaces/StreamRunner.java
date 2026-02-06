@@ -16,9 +16,17 @@ public class StreamRunner {
         double total = prices.stream()
                 .filter(p->p>500)
                 .map(p->(int)(p*0.9))
-                .reduce(0,Integer::sum);
+                .reduce(0,(a,b)->a+b);
 
         System.out.println(total);
+
+        double total1 = prices.stream()
+                .filter(p->p>500)
+                .map(p->(int)(p*0.9))
+                .reduce(0,Integer::sum);
+
+        System.out.println(total1);
+
 
 
 
