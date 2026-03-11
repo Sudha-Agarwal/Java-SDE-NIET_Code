@@ -11,12 +11,12 @@ class SumTask implements Callable<Integer>{
     public Integer call() throws Exception {
         //simulating a long running task
         System.out.println("Task started by: " + Thread.currentThread().getName());
-
+//will call api and that api will return some data
         int sum = 0;
 
         for(int i=1; i<=5; i++){
             sum = sum + i;
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }
         System.out.println("Task completed by: " + Thread.currentThread().getName());
         return sum;
@@ -39,6 +39,8 @@ public class CallableExample {
         catch (Exception e){
             e.printStackTrace();
         }
+
+        System.out.println("main thread working after future get");
         executor.shutdown();
 
     }
