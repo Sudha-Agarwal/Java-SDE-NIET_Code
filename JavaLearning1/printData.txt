@@ -1,0 +1,2 @@
+Print writer data written to fileHello java
+name: ABC Age: 25This is a formatted number: 123.46
