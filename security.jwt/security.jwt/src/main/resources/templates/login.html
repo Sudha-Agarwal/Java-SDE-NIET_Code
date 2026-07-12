@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+<h2>Login Page</h2>
+
+<input type="text" id="username" placeholder="Username">
+<br><br>
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<script>
+    async function login(){
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const response = await fetch(
+    "auth/login",
+    {
+        method: "POST",
+        headers:{
+            "Content-Type": "application/x-www-form-urlencoded"
+
+        },
+        body: `username=${username}&password=${password}`
+        }
+        );
+        const data = await response.json();
+
+        localStorage.setItem("token",data.token);
+        alert("login successful");
+        window.location.href = "/home";
+    }
+</script>
+</body>
+
+
+</html>
